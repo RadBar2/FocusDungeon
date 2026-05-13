@@ -1,31 +1,46 @@
-#include <string>
+#include "Hero.h"
 
-class Hero {
-private:
-    std::string name;
-    int hp;
-    int xp;
-    int level;
+// Constructor implementation
+Hero::Hero(const std::string& heroName) 
+    : name(heroName), hp(100), maxHP(100), xp(0), level(1) {}
 
-public:
-    // Constructor to initialize a new hero
-    Hero(std::string heroName) 
-        : name(heroName), hp(100), xp(0), level(1) {}
+// Getters 
+std::string Hero::getName() const  {
+     return name; 
+}
 
-    // Getters
-    std::string getName() const { return name; }
-    int getHP() const { return hp; }
-    int getXP() const { return xp; }
-    int getLevel() const { return level; }
+int Hero::getHP() const {
+     return hp; 
+}
 
-    // Setters
-    void setHP(int newHP) { hp = newHP; }
-    
-    void addXP(int amount) { 
-        xp += amount; 
-    }
+int Hero::getMaxHP() const {
+    return maxHP; 
+}
 
-    void setLevel(int newLevel) { 
-        level = newLevel; 
-    }
-};
+int Hero::getXP() const {
+    return xp; 
+}
+
+int Hero::getLevel() const {
+    return level;
+}
+
+// Setters
+void Hero::setHP(int newHP) {
+    hp = newHP;
+}
+
+void Hero::setMaxHP(int newMax)   {
+    maxHP = newMax;
+}
+void Hero::setXP(int newXP) {
+    xp = newXP; 
+}
+
+void Hero::setLevel(int newLevel) {
+    level = newLevel;
+}
+
+void Hero::addXP(int amount) {
+    xp += amount;
+}
