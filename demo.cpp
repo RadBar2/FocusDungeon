@@ -18,6 +18,9 @@ int main() {
     std::cout << "--- Quest Log ---" << std::endl;
     taskManager.printAllTasks();
 
+    // Display initial hero stats
+    std::cout << "Initial Hero Stats: " << player.getName() << " | HP: " << player.getHP() << " | XP: " << player.getXP() << std::endl;
+
     // 2. Processing a Success
     int successfulId = 1;
     if (taskManager.completeTask(successfulId)) {
@@ -25,12 +28,16 @@ int main() {
         engine.processTaskSuccess(player, *sucessfulTask);
     }
 
+    std::cout << std::endl << "Hero Stats after a successful task: " << player.getName() << " | HP: " << player.getHP() << " | XP: " << player.getXP() << std::endl;
+
     // 3. Processing a Failure
     int failedId = 2;
     if (taskManager.failTask(failedId)) {
         Task* failedTask = taskManager.findTaskById(failedId);
         engine.processTaskFailure(player, *failedTask);
     }
+
+    std::cout << std::endl << "Hero Stats after a failed task: " << player.getName() << " | HP: " << player.getHP() << " | XP: " << player.getXP() << std::endl;
 
     return 0;
 }
