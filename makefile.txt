@@ -1,0 +1,35 @@
+# Compiler and flags
+CXX = g++
+CXXFLAGS = -std=c++17 -Wall -Wextra -O2
+
+# The name of your final executable
+TARGET = rpg_game
+
+# All object files needed for the project
+# This includes your logic files and your main entry point
+OBJS = main.o Hero.o RPGEngine.o Task.o TaskManager.o
+
+# Default target
+all: $(TARGET)
+
+# Link the executable
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(TARGET)
+
+# Compile individual .cpp files into .o files
+# This rule watches all your headers for changes
+%.o: %.cpp Hero.h RPGEngine.h Task.h TaskManager.h
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Run the program
+run: $(TARGET)
+	./$(TARGET)
+
+# Clean generated files
+clean:
+	rm -f *.o $(TARGET)
+
+# Rebuild from scratch
+rebuild: clean all
+
+.PHONY: all run clean rebuild

@@ -10,10 +10,10 @@ TaskManager::TaskManager()
 {
 }
 
-Task* TaskManager::findTaskById(int id) {
-    for (Task& task : tasks) {
+Task* TaskManager::findTaskById(int id) const {
+    for (const Task& task : tasks) {
         if (task.getId() == id) {
-            return &task;
+            return const_cast<Task*>(&task);
         }
     }
 

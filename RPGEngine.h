@@ -1,7 +1,7 @@
 #ifndef RPGENGINE_H_INCLUDED
 #define RPGENGINE_H_INCLUDED
 
-#include "Hero.cpp"
+#include "Hero.h"
 #include "Task.h"
 
 class RPGEngine {

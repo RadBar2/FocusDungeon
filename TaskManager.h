@@ -13,9 +13,6 @@ private:
     // ID for the next created task
     int nextId;
 
-    // Finds a task by ID
-    Task* findTaskById(int id);
-
 public:
     // Creates an empty TaskManager
     TaskManager();
@@ -34,6 +31,9 @@ public:
                   int newDifficulty,
                   int newUrgency,
                   const std::string& newDeadline);
+
+    // Finds a task by ID
+    Task* findTaskById(int id) const;
 
     // Basic task actions
     bool deleteTask(int id);
